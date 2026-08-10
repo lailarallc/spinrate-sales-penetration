@@ -1,0 +1,29 @@
+name: golden
+
+# Gates the demo golden lock: runs ONLY tests/test_demo_golden.py, which pins
+# the demo engine output (SPPD + expansion-upside). Any engine drift fails here.
+# This job does NOT run the client-mode suite (that importorskips
+# lailara_engagement, which is not installed in CI).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  golden:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install packages/lailara-palette
+          pip install -e ".[dev]"
+      - name: Demo golden lock
+        run: python -m pytest tests/test_demo_golden.py -q

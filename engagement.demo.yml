@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Lailara LLC — Spin Rate engagement config (DEMO)
+#
+# Demo identity is the canonical Cinderhaven brand; `demo: true` so the deploy
+# guard ignores it. The deployed demo renders from Postgres — this config
+# exercises client_mode.py on demo-shaped POS files under client-data/
+# (gitignored, never committed).
+# ─────────────────────────────────────────────────────────────────────────────
+
+client:
+  name: "Cinderhaven Provisions (demo)"
+
+engagement:
+  id: "CINDERHAVEN-DEMO"
+
+as_of_date: "2025-12-27"
+
+prepared_by: "Lailara LLC"
+
+demo: true
+
+basis:
+  week_convention: "week_ending_saturday"
+  scan_basis: "retail_scan"          # current revenue basis; upside is valued at WHOLESALE
+
+inputs:
+  scans: "client-data/scans.csv"
+  authorizations: "client-data/authorizations.csv"
+  stores: "client-data/stores.csv"
+  products: "client-data/products.csv"
+
+columns:
+  store_id: "store_id"
+  sku: "sku"
+  week_ending: "week_ending"
+  units_sold: "units_sold"
+  dollars_sold: "dollars_sold"
+  authorized_date: "authorized_date"
+  retailer_id: "retailer_id"
+  chain_name: "chain_name"
+  region: "region"
+  state: "state"
+  volume_tier: "volume_tier"
+
+thresholds:
+  fail_on_missing_required_column: true
+  fail_on_duplicate_keys: true
