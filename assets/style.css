@@ -238,8 +238,10 @@
 
 /* ── Narrative intro (U7) ── */
 
+/* Narrative content column: toggle, title, and body share one right edge
+   (--ll-content-measure) so the title never wraps wider than the body. */
 .narrative-details {
-    max-width: 900px;
+    max-width: var(--ll-content-measure, 720px);
     margin: 0 auto;
     padding: 0 24px 32px;
 }
@@ -272,13 +274,13 @@
 }
 
 .narrative-section {
-    max-width: 900px;
     margin: 0 auto;
     padding: 16px 0 32px;
+    /* measure inherited from .narrative-details column edge */
 }
 
 .narrative-content {
-    max-width: var(--ll-body-max-width, 720px);
+    /* measure inherited from .narrative-details column edge */
 }
 
 .narrative-title {
@@ -298,7 +300,7 @@
     color: var(--ll-london-20);
     line-height: 1.6;
     margin: 0 0 12px 0;
-    max-width: var(--ll-body-max-width, 720px);
+    /* measure inherited from .narrative-details column edge */
 }
 
 .narrative-protagonist {
@@ -453,8 +455,12 @@ html, body {
 
 /* ── Tool hero (30-second test) ─ sanctioned series deviation:
    hero lede 44/30 per LAILARA_DESIGN_SYSTEM.md § series-level sub-tokens */
+/* Hero content column: display headline + lede share one right edge
+   (--ll-content-measure, frame v1.5.0) so the 44px headline never wraps
+   wider than the lede beneath it. */
 .tool-hero {
     padding: 24px 0 8px;
+    max-width: var(--ll-content-measure, 720px);
 }
 .hero-headline {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -464,15 +470,15 @@ html, body {
     letter-spacing: -0.01em;
     color: #0d0d0d;
     margin: 0 0 12px;
-    max-width: 900px;
+    /* measure inherited from .tool-hero column edge (was 900px, overran lede) */
 }
 .hero-subhead {
     font-family: 'Source Sans 3', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.6;
     color: #333333;
-    max-width: var(--ll-body-max-width, 720px);
     margin: 0 0 8px;
+    /* measure inherited from .tool-hero column edge */
 }
 @media (max-width: 640px) {
     .hero-headline { font-size: 30px; }
