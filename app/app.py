@@ -10,7 +10,22 @@ app = dash.Dash(
     assets_folder="../assets",
     suppress_callback_exceptions=True,
     title="Spin Rate — Penetration × Velocity",
-    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+        {"name": "description", "content": "Every item plotted by distribution penetration against velocity, bubble-sized by dollars, across four quadrants."},
+        {"property": "og:title", "content": "Spin Rate: Penetration and Velocity"},
+        {"property": "og:description", "content": "Every item plotted by distribution penetration against velocity, bubble-sized by dollars, across four quadrants."},
+        {"property": "og:type", "content": "website"},
+        {"property": "og:url", "content": "https://spinrate.lailarallc.com/"},
+        {"property": "og:image", "content": "https://lailarallc.com/og/s/spinrate.png"},
+        {"property": "og:image:secure_url", "content": "https://lailarallc.com/og/s/spinrate.png"},
+        {"property": "og:image:type", "content": "image/png"},
+        {"property": "og:image:width", "content": "1200"},
+        {"property": "og:image:height", "content": "630"},
+        {"property": "og:image:alt", "content": "Spin Rate: Penetration and Velocity"},
+        {"name": "twitter:card", "content": "summary_large_image"},
+        {"name": "twitter:image", "content": "https://lailarallc.com/og/s/spinrate.png"},
+    ],
 )
 server = app.server
 server.secret_key = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
