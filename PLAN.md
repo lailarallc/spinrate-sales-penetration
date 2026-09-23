@@ -144,3 +144,11 @@ Still open, unrelated to the above:
       exits, so the 12 Q4-2025 entries above cannot appear as Sankey nodes yet.
       Separate [High]; the distribution window is a precondition for it, not a
       substitute.
+
+## Improvement History
+
+### 2026-09-23 — Audit (health check only)
+- **Findings:** 0 critical, 4 important, 3 nice-to-have
+- **Top concerns:** The Migration tab still fails its premise at the shipped default window (Q1-Q4 2025 has no deauthorizations, so almost nothing moves) and the inner join at `app/views/migration.py:186` still drops entries/exits. `fly-deploy.yml` deploys every push to main with no test gate, and the full 216-test suite never runs in CI (only golden + client-mode). PLAN.md and HANDOFF.md are stale: the "Un-pinned defect — fix is not written" block is still unchecked though the fix is on origin/main (`app/db.py:331`), and HANDOFF's last entry is 2026-07-02. Local: 216 tests pass; last 4 CI workflows green (2026-09-05). Manual security/code/data pass replaced the automated reviews.
+- **Action taken:** Audit only — no fixes this session
+- **Next review:** 2026-12-22
