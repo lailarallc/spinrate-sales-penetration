@@ -1,0 +1,16 @@
+# Typed figures this repo prints with no canon key (owner, 2026-11-15; plan U19, U22).
+# One row per figure per location. The platform's fleet check holds the row count to a ceiling that only
+# falls: give a figure a key (or stop printing it) and delete its row. listed=yes: the read map names it, and
+# U19 owes its key; listed=no: U22 works it down. Generated from the 2026-11-15 manifest pass.
+file_line	printed	exact_value	meaning	source	kind	listed
+README.md:29	5 product lines	5	product line count	prose only; canon universe.product_lines.all_time	prose-only	no
+README.md:29	6 contracted retailers	6	contracted retailer count	prose only; canon universe.retailers.all_time	prose-only	no
+README.md:33	5 product lines	5	product line count (canonical baseline line)	prose only; canon universe.product_lines.all_time	prose-only	no
+README.md:33	6 retailers	6	retailer count (canonical baseline line)	prose only; canon universe.retailers.all_time	prose-only	no
+README.md:33	10 channels (6 retail + UNFI·KeHE·DPI + DTC)	10	sales channel count: 6 retail + 3 distributors + DTC	prose only; canon universe.retailers + universe.distributors + DTC	prose-only	no
+app/filters.py:13	Q1 2025		default window start quarter	constant app/filters.py:13	assumption	yes
+app/filters.py:14	Q4 2025		default window end quarter	constant app/filters.py:14	assumption	yes
+app/layout.py:424	CY2023–2025		scan data window, calendar years 2023-2025	prose only; canon data_windows.scan_data 2023-01-07|2025-12-27	prose-only	yes
+app/views/at_risk.py:140	−6.9%	-6.9	illustrative velocity gap vs category median (help-text example)	prose only; no source in repo	prose-only	no
+app/views/migration.py:745	2024-11-10		last distribution (deauthorization) event date	prose only; canon data_windows.distribution_deauthorized 2023-04-18|2024-11-10|816	prose-only	yes
+engagement.demo.yml:16	2025-12-27		demo as-of date (last scan week)	config literal; canon data_windows.tail_scan 2025-12-27	assumption	yes
